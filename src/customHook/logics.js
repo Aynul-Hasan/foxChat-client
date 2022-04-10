@@ -4,7 +4,7 @@ export const createChat=async(userId,logUserId)=>{
     try{
         const info={userId,logUserId}
         // console.log(info)
-        const {data}= await  axios.post("http://localhost:8000/chat/",info)
+        const {data}= await  axios.post("https://calm-plains-76927.herokuapp.com/chat/",info)
         return data
     }catch(err){
         console.log(err)
@@ -14,7 +14,7 @@ export const usegetAllChats=async(logUserId)=>{
     
     try{
         console.log(logUserId)
-        const {data}= await axios.get(`http://localhost:8000/chat/${logUserId}`)
+        const {data}= await axios.get(`https://calm-plains-76927.herokuapp.com/chat/${logUserId}`)
 
         return data
     }catch(err){

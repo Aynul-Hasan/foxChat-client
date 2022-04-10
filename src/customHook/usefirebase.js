@@ -1,9 +1,8 @@
+import axios from 'axios';
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { useEffect, useState } from "react";
-import firebaseInitapp from "../firebase/firebaseinit.js"; 
-import { getAuth ,signOut ,GoogleAuthProvider,signInWithPopup,
-     onAuthStateChanged,createUserWithEmailAndPassword , updateProfile ,signInWithEmailAndPassword} from "firebase/auth";
+import firebaseInitapp from "../firebase/firebaseinit.js";
 
-import axios from 'axios'
 // import { useLocation, useNavigate } from "react-router-dom";
 firebaseInitapp();
 const useFirebase=()=>{
@@ -42,7 +41,7 @@ const useFirebase=()=>{
             //   console.log(name,email,iamge)
               
               const data={name,email,image}
-                const res= await axios.post('http://localhost:8000/user/',data)
+                const res= await axios.post('https://calm-plains-76927.herokuapp.com/user/',data)
 
           }catch(err){
 
@@ -96,7 +95,7 @@ const useFirebase=()=>{
     }, [])
    const callChats=async(id)=>{
        try {
-        const {data}= await axios.get(`http://localhost:8000/chat/${id}`)
+        const {data}= await axios.get(`https://calm-plains-76927.herokuapp.com/chat/${id}`)
         setchats(data)
        } catch (error) {
            
