@@ -49,20 +49,18 @@ const MsgBox = ({seletedChat,chatUser}) => {
     }, [seletedChat])
     const msgRecieved=()=>{
         socket.on("message recieved",(newMessageRecieved)=>{
-            // console.log(newMessageRecieved)
             if(!selectetChatCompare || selectetChatCompare !== newMessageRecieved.chat._id){
-                // console.log(`hi`)
+                console.log('he')
             }
             else{
                 setallMessage([...allMessage,newMessageRecieved])
             }
         })
     }
-   useEffect(() => { 
-    msgRecieved()
+   useEffect(() => {
+        // console.log('ji')
+        msgRecieved()
    }) 
-//    console.log(chatUser)
-   
     const sendMessage=async()=>{
         if(!newMessage){
             return
